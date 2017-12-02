@@ -3,7 +3,5 @@
     public interface IMemento
     {
         string State { get; set; }
-        string GetState();
-        void SetState();
     }
 }

@@ -14,7 +14,7 @@ namespace Wishlist.Interface
         void RestoreToCheckpoint(IMemento checkpointMemento);
         void AddWish();
         void PrintWishlist();
-        void RemoveWish();
+        void RemoveWish(string wishName);
         void ClearWishlist();
         double TotalWishlistPrice();
 
