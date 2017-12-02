@@ -1,6 +1,6 @@
 ﻿using Wishlist.Interface;
 
-namespace Wishlist.Classes
+namespace Wishlist
 {
     public class CheckpointCaretaker : ICaretaker
     {

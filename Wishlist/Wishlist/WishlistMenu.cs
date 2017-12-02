@@ -1,4 +1,4 @@
-﻿namespace Wishlist.Classes
+﻿namespace Wishlist
 {
     public class WishlistMenu
     {

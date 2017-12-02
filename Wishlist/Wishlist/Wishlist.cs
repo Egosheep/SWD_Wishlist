@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using Wishlist.Interface;
 
-namespace Wishlist.Classes
+namespace Wishlist
 {
     public class Wishlist : IWishlist
     {
         public string OwnerName { get; set; }
         public string OwnerAddress { get; set; }
         public List<IWish> ListOfWishes { get; set; }
-        public string State { get; set; }
+        public DefaultMemento StoreDefaultMemento()
+        {
+            return new DefaultMemento(this);
+        }
+
         public void RestoreToDefault(IMemento defaultMemento)
         {
-            throw new System.NotImplementedException();
+            OwnerName = defaultMemento.OwnerName;
+            OwnerAddress = defaultMemento.OwnerAddress;
+            ListOfWishes = defaultMemento.ListOfWishes;
+        }
+
+        public CheckpointMemento StoreCheckpointMemento()
+        {
+            return new CheckpointMemento(this);
         }
 
         public void RestoreToCheckpoint(IMemento checkpointMemento)
         {
-            throw new System.NotImplementedException();
+            OwnerName = checkpointMemento.OwnerName;
+            OwnerAddress = checkpointMemento.OwnerAddress;
+            ListOfWishes = checkpointMemento.ListOfWishes;
         }
 
         public void AddWish()

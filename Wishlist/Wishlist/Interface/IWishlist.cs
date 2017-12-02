@@ -8,9 +8,10 @@ namespace Wishlist.Interface
         string OwnerName { get; set; }
         string OwnerAddress { get; set; }
         List<IWish> ListOfWishes { get; set;}
-        string State { get; set; }
 
+        DefaultMemento StoreDefaultMemento();
         void RestoreToDefault(IMemento defaultMemento);
+        CheckpointMemento StoreCheckpointMemento();
         void RestoreToCheckpoint(IMemento checkpointMemento);
         void AddWish();
         void PrintWishlist();
