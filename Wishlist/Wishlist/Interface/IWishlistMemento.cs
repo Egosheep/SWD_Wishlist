@@ -2,7 +2,7 @@
 
 namespace Wishlist.Interface
 {
-    public interface IMemento
+    public interface IWishlistMemento
     {
         string OwnerName { get; set; }
         string OwnerAddress { get; set; }

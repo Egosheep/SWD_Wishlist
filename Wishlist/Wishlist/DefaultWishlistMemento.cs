@@ -3,9 +3,9 @@ using Wishlist.Interface;
 
 namespace Wishlist
 {
-    public class DefaultMemento : IMemento
+    public class DefaultWishlistMemento : IWishlistMemento
     {
-        public DefaultMemento(IWishlist wishlist)
+        public DefaultWishlistMemento(IWishlist wishlist)
         {
             OwnerAddress = wishlist.OwnerAddress;
             OwnerName = wishlist.OwnerName;

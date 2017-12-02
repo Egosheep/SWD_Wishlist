@@ -42,12 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckpointCaretaker.cs" />
-    <Compile Include="CheckpointMemento.cs" />
-    <Compile Include="DefaultCaretaker.cs" />
-    <Compile Include="DefaultMemento.cs" />
-    <Compile Include="Interface\ICaretaker.cs" />
-    <Compile Include="Interface\IMemento.cs" />
+    <Compile Include="CheckpointWishlistCaretaker.cs" />
+    <Compile Include="CheckpointWishlistMemento.cs" />
+    <Compile Include="DefaultWishlistCaretaker.cs" />
+    <Compile Include="DefaultWishlistMemento.cs" />
+    <Compile Include="Interface\IWishlistCaretaker.cs" />
+    <Compile Include="Interface\IWishlistMemento.cs" />
     <Compile Include="Interface\IWish.cs" />
     <Compile Include="Interface\IWishlist.cs" />
     <Compile Include="Interface\IWishlistMenu.cs" />

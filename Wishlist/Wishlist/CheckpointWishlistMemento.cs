@@ -3,9 +3,9 @@ using Wishlist.Interface;
 
 namespace Wishlist
 {
-    public class CheckpointMemento : IMemento
+    public class CheckpointWishlistMemento : IWishlistMemento
     {
-        public CheckpointMemento(IWishlist wishlist)
+        public CheckpointWishlistMemento(IWishlist wishlist)
         {
             OwnerAddress = wishlist.OwnerAddress;
             OwnerName = wishlist.OwnerName;

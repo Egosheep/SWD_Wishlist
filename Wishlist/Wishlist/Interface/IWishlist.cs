@@ -9,10 +9,10 @@ namespace Wishlist.Interface
         string OwnerAddress { get; set; }
         List<IWish> ListOfWishes { get; set;}
 
-        DefaultMemento StoreDefaultMemento();
-        void RestoreToDefault(IMemento defaultMemento);
-        CheckpointMemento StoreCheckpointMemento();
-        void RestoreToCheckpoint(IMemento checkpointMemento);
+        DefaultWishlistMemento StoreDefaultMemento();
+        void RestoreToDefault(IWishlistMemento defaultWishlistMemento);
+        CheckpointWishlistMemento StoreCheckpointMemento();
+        void RestoreToCheckpoint(IWishlistMemento checkpointWishlistMemento);
         void AddWish();
         void PrintWishlist();
         void RemoveWish(string wishName);

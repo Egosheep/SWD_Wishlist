@@ -10,28 +10,28 @@ namespace Wishlist
         public string OwnerName { get; set; }
         public string OwnerAddress { get; set; }
         public List<IWish> ListOfWishes { get; set; }
-        public DefaultMemento StoreDefaultMemento()
+        public DefaultWishlistMemento StoreDefaultMemento()
         {
-            return new DefaultMemento(this);
+            return new DefaultWishlistMemento(this);
         }
 
-        public void RestoreToDefault(IMemento defaultMemento)
+        public void RestoreToDefault(IWishlistMemento defaultWishlistMemento)
         {
-            OwnerName = defaultMemento.OwnerName;
-            OwnerAddress = defaultMemento.OwnerAddress;
-            ListOfWishes = defaultMemento.ListOfWishes;
+            OwnerName = defaultWishlistMemento.OwnerName;
+            OwnerAddress = defaultWishlistMemento.OwnerAddress;
+            ListOfWishes = defaultWishlistMemento.ListOfWishes;
         }
 
-        public CheckpointMemento StoreCheckpointMemento()
+        public CheckpointWishlistMemento StoreCheckpointMemento()
         {
-            return new CheckpointMemento(this);
+            return new CheckpointWishlistMemento(this);
         }
 
-        public void RestoreToCheckpoint(IMemento checkpointMemento)
+        public void RestoreToCheckpoint(IWishlistMemento checkpointWishlistMemento)
         {
-            OwnerName = checkpointMemento.OwnerName;
-            OwnerAddress = checkpointMemento.OwnerAddress;
-            ListOfWishes = checkpointMemento.ListOfWishes;
+            OwnerName = checkpointWishlistMemento.OwnerName;
+            OwnerAddress = checkpointWishlistMemento.OwnerAddress;
+            ListOfWishes = checkpointWishlistMemento.ListOfWishes;
         }
 
         public void AddWish()
