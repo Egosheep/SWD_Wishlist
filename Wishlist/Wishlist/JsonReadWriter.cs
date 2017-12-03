@@ -11,7 +11,7 @@ namespace Wishlist
     {
         private readonly string _filepath = AppDomain.CurrentDomain.BaseDirectory + "\\localstore_wishlists.json";
 
-        public Dictionary<int, IWishlist> LoadWishlists()
+        public Dictionary<int, IWishlist> LoadWishlistsFromFile()
         {
             var returnDictionary = new Dictionary<int, IWishlist>();
             var tempList = new List<IWishlist>();

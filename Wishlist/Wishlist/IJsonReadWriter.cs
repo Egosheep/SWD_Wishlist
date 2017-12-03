@@ -5,7 +5,7 @@ namespace Wishlist
 {
     public interface IJsonReadWriter
     {
-        Dictionary<int, IWishlist> LoadWishlists();
+        Dictionary<int, IWishlist> LoadWishlistsFromFile();
         void SaveWishlistToFile(Dictionary<int, IWishlist> wishhlistsToSave);
     }
 }
