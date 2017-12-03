@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Wishlist.Interface;
 
-namespace Wishlist
+namespace Wishlist.Interface
 {
     public interface IJsonReadWriter
     {
