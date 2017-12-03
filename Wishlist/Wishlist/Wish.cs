@@ -9,7 +9,7 @@ namespace Wishlist
 
         public override string ToString()
         {
-            return base.ToString();
+            return "Wish name: " + Name + ".\t Price: " + Price + " BTC.";
         }
     }
 }
