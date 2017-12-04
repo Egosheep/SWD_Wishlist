@@ -64,6 +64,10 @@ namespace Wishlist
         public void RemoveWish(string wishName)
         {
             var wishesToRemove = ListOfWishes.Where(f => f.Name.Contains(wishName));
+            if (wishesToRemove.Count() == 0)
+            {
+                Console.WriteLine("Not found");
+            }
             foreach (var wish in wishesToRemove)
             {
                 Console.WriteLine("Remove " + wish.Name + " from wishlist?");
@@ -73,6 +77,7 @@ namespace Wishlist
                 ListOfWishes.Remove(wish);
                 Console.WriteLine(wish.Name + " Removed from wishlist.");
             }
+
         }
 
         public void ClearWishlist()

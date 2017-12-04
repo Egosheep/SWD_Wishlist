@@ -9,6 +9,7 @@ namespace Wishlist
         {
             OwnerAddress = wishlist.OwnerAddress;
             OwnerName = wishlist.OwnerName;
+            if(wishlist.ListOfWishes != null)
             ListOfWishes = new List<IWish>(wishlist.ListOfWishes);
         }
         

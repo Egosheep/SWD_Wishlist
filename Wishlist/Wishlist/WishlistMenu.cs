@@ -17,6 +17,7 @@ namespace Wishlist
         {
             _wishlist = chosenWishlist;
             _checkpointCaretaker = new WishlistCaretaker();
+            this._defaultCaretaker = new WishlistCaretaker();
             _defaultCaretaker.WishlistMemento = chosenWishlist.StoreMemento();
         }
 
@@ -26,14 +27,12 @@ namespace Wishlist
             {
                 Console.WriteLine(wish.ToString());
             }
-            WishlistMenuActions();
+
             string readLine = null;
-            while (readLine != "e" || readLine != "s" || string.IsNullOrEmpty(readLine))
+            while (readLine != "e" && readLine != "s")
             {
-                while (string.IsNullOrEmpty(readLine))
-                {
-                    readLine = Console.ReadLine();
-                }
+                WishlistMenuActions();
+                readLine = Console.ReadLine();
                 switch (readLine.ToLower())
                 {
                     case "a":
@@ -55,6 +54,9 @@ namespace Wishlist
                     case "e":
                         _wishlist.RestoreToDefault(_defaultCaretaker.WishlistMemento);
                         break;
+                    case "p":
+                        this._wishlist.PrintWishlist();
+                        break;
                     case "s":
                         Console.WriteLine("Saving and exiting.");
                         Thread.Sleep(2000);
@@ -68,7 +70,7 @@ namespace Wishlist
 
         private void WishlistMenuActions()
         {
-            Console.WriteLine("(A)dd wish.\t (R)emove wish.\t (C)lear wishlist.\t (U)ndo last change.\t (E)xit and undo all changes.\t (S)ave and exit.");
+            Console.WriteLine("(A)dd wish.\t (R)emove wish.\t (C)lear wishlist.\t (U)ndo last change.\t (E)xit and undo all changes.\t (P)rint wishes.\t (S)ave and exit.");
         }
     }
 }
