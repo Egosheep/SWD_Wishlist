@@ -45,11 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckpointWishlistCaretaker.cs" />
-    <Compile Include="CheckpointWishlistMemento.cs" />
     <Compile Include="ConsolePrinter.cs" />
-    <Compile Include="DefaultWishlistCaretaker.cs" />
-    <Compile Include="DefaultWishlistMemento.cs" />
+    <Compile Include="WishlistCaretaker.cs" />
+    <Compile Include="WishlistMemento.cs" />
     <Compile Include="Interface\IConsolePrinter.cs" />
     <Compile Include="Interface\IJsonReadWriter.cs" />
     <Compile Include="Interface\IWishlistCaretaker.cs" />

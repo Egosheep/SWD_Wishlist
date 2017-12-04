@@ -3,14 +3,15 @@ using Wishlist.Interface;
 
 namespace Wishlist
 {
-    public class CheckpointWishlistMemento : IWishlistMemento
+    public class WishlistMemento : IWishlistMemento
     {
-        public CheckpointWishlistMemento(IWishlist wishlist)
+        public WishlistMemento(IWishlist wishlist)
         {
             OwnerAddress = wishlist.OwnerAddress;
             OwnerName = wishlist.OwnerName;
             ListOfWishes = new List<IWish>(wishlist.ListOfWishes);
         }
+        
         public string OwnerName { get; set; }
         public string OwnerAddress { get; set; }
         public List<IWish> ListOfWishes { get; set; }

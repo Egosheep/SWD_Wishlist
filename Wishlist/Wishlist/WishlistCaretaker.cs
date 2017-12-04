@@ -2,7 +2,7 @@
 
 namespace Wishlist
 {
-    public class CheckpointWishlistCaretaker : IWishlistCaretaker
+    public class WishlistCaretaker : IWishlistCaretaker
     {
         public IWishlistMemento WishlistMemento { get; set; }
     }

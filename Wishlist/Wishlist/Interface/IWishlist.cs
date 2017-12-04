@@ -9,15 +9,13 @@ namespace Wishlist.Interface
         string OwnerAddress { get; set; }
         List<IWish> ListOfWishes { get; set;}
 
-        DefaultWishlistMemento StoreDefaultMemento();
+        WishlistMemento StoreMemento();
         void RestoreToDefault(IWishlistMemento defaultWishlistMemento);
-        CheckpointWishlistMemento StoreCheckpointMemento();
         void RestoreToCheckpoint(IWishlistMemento checkpointWishlistMemento);
         void AddWish();
         void PrintWishlist();
         void RemoveWish(string wishName);
         void ClearWishlist();
         double TotalWishlistPrice();
-
     }
 }
