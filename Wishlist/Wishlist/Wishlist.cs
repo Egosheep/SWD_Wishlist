@@ -25,9 +25,12 @@ namespace Wishlist
 
         public void RestoreToCheckpoint(IWishlistMemento checkpointWishlistMemento)
         {
-            OwnerName = checkpointWishlistMemento.OwnerName;
-            OwnerAddress = checkpointWishlistMemento.OwnerAddress;
-            ListOfWishes = checkpointWishlistMemento.ListOfWishes;
+            if (checkpointWishlistMemento != null)
+            {
+                OwnerName = checkpointWishlistMemento.OwnerName;
+                OwnerAddress = checkpointWishlistMemento.OwnerAddress;
+                ListOfWishes = checkpointWishlistMemento.ListOfWishes;
+            }
         }
 
         public void AddWish()

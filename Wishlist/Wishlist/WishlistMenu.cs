@@ -45,8 +45,7 @@ namespace Wishlist
                         _wishlist.RemoveWish(Console.ReadLine());
                         break;
                     case "c":
-                        _checkpointCaretaker.WishlistMemento = _wishlist.StoreMemento();
-                        _wishlist.ClearWishlist();
+                        _wishlist.RestoreToDefault(_defaultCaretaker.WishlistMemento);
                         break;
                     case "u":
                         _wishlist.RestoreToCheckpoint(_checkpointCaretaker.WishlistMemento);
