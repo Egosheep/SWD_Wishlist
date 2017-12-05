@@ -1,7 +1,9 @@
-﻿using Wishlist.Interface;
+﻿using System;
+using Wishlist.Interface;
 
 namespace Wishlist
 {
+    [Serializable]
     public class Wish : IWish
     {
         public string Name { get; set; }

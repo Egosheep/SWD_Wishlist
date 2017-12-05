@@ -5,11 +5,19 @@ using Wishlist.Interface;
 
 namespace Wishlist
 {
+    [Serializable]
     public class Wishlist : IWishlist
     {
         public string OwnerName { get; set; }
         public string OwnerAddress { get; set; }
         public List<IWish> ListOfWishes { get; set; }
+
+        public Wishlist(string owner, string address)
+        {
+            OwnerName = owner;
+            OwnerAddress = address;
+            ListOfWishes = new List<IWish>();
+        }
 
         public WishlistMemento StoreMemento()
         {
@@ -35,6 +43,7 @@ namespace Wishlist
 
         public void AddWish()
         {
+            Console.Clear();
             Console.Write("Wish name: ");
             string wishName = null;
             while (string.IsNullOrEmpty(wishName))
@@ -66,6 +75,7 @@ namespace Wishlist
 
         public void RemoveWish(string wishName)
         {
+            Console.Clear();
             var wishesToRemove = ListOfWishes.Where(f => f.Name.Contains(wishName));
             if (wishesToRemove.Count() == 0)
             {

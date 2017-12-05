@@ -2,7 +2,7 @@
 {
     public interface IConsolePrinter
     {
-        void CenteredHeader(string text);
-        void MenuItem(string itemName, string text);
+        void PrintCenteredHeader(string text);
+        void PrintMainMenuWishlistItem(int itemNumber, IWishlist item);
     }
 }

@@ -5,15 +5,14 @@ namespace Wishlist
 {
     public class ConsolePrinter : IConsolePrinter
     {
-        public void CenteredHeader(string text)
+        public void PrintCenteredHeader(string text)
         {
-            string headerText = text;
-            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + (headerText.Length / 2)) + "}", headerText);
+            Console.WriteLine("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text);
         }
 
-        public void MenuItem(string itemName, string text)
+        public void PrintMainMenuWishlistItem(int itemNumber, IWishlist item)
         {
-            Console.WriteLine("(" + itemName + ")" + "\t " + text);
+            Console.WriteLine("(" + itemNumber + ")" + "\t " + item.OwnerName + "' Wishlist.");
         }
     }
 }

@@ -23,15 +23,15 @@ namespace Wishlist
 
         public void ShowWishlistMenu()
         {
-            foreach (var wish in _wishlist.ListOfWishes)
+            var readLine = string.Empty;
+            while ((readLine.ToLower() != "e" && readLine.ToLower() != "s") || string.IsNullOrEmpty(readLine))
             {
-                Console.WriteLine(wish.ToString());
-            }
-
-            string readLine = null;
-            while (readLine != "e" && readLine != "s")
-            {
-                WishlistMenuActions();
+                Console.Clear();
+                foreach (var wish in _wishlist.ListOfWishes)
+                {
+                    Console.WriteLine(wish.ToString());
+                }
+                WishlistMenuOptions();
                 readLine = Console.ReadLine();
                 switch (readLine.ToLower())
                 {
@@ -53,9 +53,6 @@ namespace Wishlist
                     case "e":
                         _wishlist.RestoreToDefault(_defaultCaretaker.WishlistMemento);
                         break;
-                    case "p":
-                        this._wishlist.PrintWishlist();
-                        break;
                     case "s":
                         Console.WriteLine("Saving and exiting.");
                         Thread.Sleep(2000);
@@ -67,9 +64,11 @@ namespace Wishlist
             }
         }
 
-        private void WishlistMenuActions()
+        private void WishlistMenuOptions()
         {
-            Console.WriteLine("(A)dd wish.\t (R)emove wish.\t (C)lear wishlist.\t (U)ndo last change.\t (E)xit and undo all changes.\t (P)rint wishes.\t (S)ave and exit.");
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("(A)dd wish.\t (R)emove wish.\t (C)lear wishlist.");
+            Console.WriteLine("(U)ndo last change.\t (E)xit and undo all changes.\t (S)ave and exit.");
         }
     }
 }
