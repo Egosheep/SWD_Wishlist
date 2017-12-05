@@ -1,18 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-using Newtonsoft.Json;
-using Wishlist.Interface;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="WishlistMenu.cs" company="Aarhus University">
+//   Group 1
+// </copyright>
+// <summary>
+//   Defines the WishlistMenu type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Wishlist
 {
+    using System;
+    using System.Threading;
+
+    using global::Wishlist.Interface;
+
+    /// <summary>
+    /// The wish list menu.
+    /// </summary>
     public class WishlistMenu : IWishlistMenu
     {
+        /// <summary>
+        /// The _wishlist.
+        /// </summary>
         private IWishlist _wishlist;
+
+        /// <summary>
+        /// The _checkpoint caretaker.
+        /// </summary>
         private IWishlistCaretaker _checkpointCaretaker;
+
+        /// <summary>
+        /// The _default caretaker.
+        /// </summary>
         private IWishlistCaretaker _defaultCaretaker;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WishlistMenu"/> class.
+        /// </summary>
+        /// <param name="chosenWishlist">
+        /// The chosen wish list.
+        /// </param>
         public WishlistMenu(IWishlist chosenWishlist)
         {
             _wishlist = chosenWishlist;
@@ -21,6 +48,9 @@ namespace Wishlist
             _defaultCaretaker.WishlistMemento = chosenWishlist.StoreMemento();
         }
 
+        /// <summary>
+        /// The show wish list menu.
+        /// </summary>
         public void ShowWishlistMenu()
         {
             var readLine = string.Empty;
@@ -64,6 +94,9 @@ namespace Wishlist
             }
         }
 
+        /// <summary>
+        /// The wish list menu options.
+        /// </summary>
         private void WishlistMenuOptions()
         {
             Console.WriteLine(Environment.NewLine);

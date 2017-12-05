@@ -1,17 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Wishlist.Interface;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Wishlist.cs" company="Aarhus University">
+//   Group 1
+// </copyright>
+// <summary>
+//   Defines the Wishlist type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Wishlist
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using global::Wishlist.Interface;
+
+    /// <summary>
+    /// The wishlist.
+    /// </summary>
     [Serializable]
     public class Wishlist : IWishlist
     {
+        /// <summary>
+        /// Gets or sets the owner name.
+        /// </summary>
         public string OwnerName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the owner address.
+        /// </summary>
         public string OwnerAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the list of wishes.
+        /// </summary>
         public List<IWish> ListOfWishes { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Wishlist"/> class.
+        /// </summary>
+        /// <param name="owner">
+        /// The owner.
+        /// </param>
+        /// <param name="address">
+        /// The address.
+        /// </param>
         public Wishlist(string owner, string address)
         {
             OwnerName = owner;
@@ -19,11 +52,23 @@ namespace Wishlist
             ListOfWishes = new List<IWish>();
         }
 
+        /// <summary>
+        /// The store memento.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="WishlistMemento"/>.
+        /// </returns>
         public WishlistMemento StoreMemento()
         {
             return new WishlistMemento(this);
         }
 
+        /// <summary>
+        /// The restore to default.
+        /// </summary>
+        /// <param name="defaultWishlistMemento">
+        /// The default wish list memento.
+        /// </param>
         public void RestoreToDefault(IWishlistMemento defaultWishlistMemento)
         {
             OwnerName = defaultWishlistMemento.OwnerName;
@@ -31,6 +76,12 @@ namespace Wishlist
             ListOfWishes = defaultWishlistMemento.ListOfWishes;
         }
 
+        /// <summary>
+        /// The restore to checkpoint.
+        /// </summary>
+        /// <param name="checkpointWishlistMemento">
+        /// The checkpoint wish list memento.
+        /// </param>
         public void RestoreToCheckpoint(IWishlistMemento checkpointWishlistMemento)
         {
             if (checkpointWishlistMemento != null)
@@ -41,6 +92,9 @@ namespace Wishlist
             }
         }
 
+        /// <summary>
+        /// The add wish.
+        /// </summary>
         public void AddWish()
         {
             Console.Clear();
@@ -65,6 +119,9 @@ namespace Wishlist
             Console.WriteLine("Wish added to wishlist.");
         }
 
+        /// <summary>
+        /// The print wishlist.
+        /// </summary>
         public void PrintWishlist()
         {
             foreach (var wish in ListOfWishes)
@@ -73,6 +130,12 @@ namespace Wishlist
             }
         }
 
+        /// <summary>
+        /// The remove wish.
+        /// </summary>
+        /// <param name="wishName">
+        /// The wish name.
+        /// </param>
         public void RemoveWish(string wishName)
         {
             Console.Clear();
@@ -93,12 +156,21 @@ namespace Wishlist
 
         }
 
+        /// <summary>
+        /// The clear wishlist.
+        /// </summary>
         public void ClearWishlist()
         {
             ListOfWishes.Clear();
             Console.WriteLine("Wishlist cleared.");
         }
 
+        /// <summary>
+        /// The total wishlist price.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="double"/>.
+        /// </returns>
         public double TotalWishlistPrice()
         {
             return ListOfWishes.Sum(wish => wish.Price);
