@@ -1,27 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Wishlist.Interface;
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="MainMenu.cs" company="Aarhus University">
+//   Group 1
+// </copyright>
+// <summary>
+//   Defines the MainMenu type.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 
 namespace Wishlist
 {
-    class MainMenu
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Mime;
+    using System.Runtime.InteropServices;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Threading.Tasks;
+
+    using global::Wishlist.Interface;
+
+    /// <summary>
+    /// The main menu.
+    /// </summary>
+    public class MainMenu
     {
+        /// <summary>
+        /// The _console printer.
+        /// </summary>
         private readonly IConsolePrinter _consolePrinter;
+
+        /// <summary>
+        /// The _wishlist menu.
+        /// </summary>
         private IWishlistMenu _wishlistMenu;
+
+        /// <summary>
+        /// The _json read writer.
+        /// </summary>
         private readonly IJsonReadWriter _jsonReadWriter;
+
+        /// <summary>
+        /// The wish list dictionary.
+        /// </summary>
         private Dictionary<int, IWishlist> _wishlistDictionary;
 
-        static void Main()
+        /// <summary>
+        /// The main.
+        /// </summary>
+        public static void Main()
         {
             var mainMenu = new MainMenu();
             mainMenu.ShowMainMenu();
         }
+
+        /// <summary>
+        /// Prevents a default instance of the <see cref="MainMenu"/> class from being created.
+        /// </summary>
         private MainMenu()
         {
             _consolePrinter = new ConsolePrinter();
@@ -29,6 +64,9 @@ namespace Wishlist
             _wishlistDictionary = _jsonReadWriter.LoadWishlistsFromFile() ?? new Dictionary<int, IWishlist>();
         }
 
+        /// <summary>
+        /// The show main menu.
+        /// </summary>
         private void ShowMainMenu()
         {
             var input = string.Empty;
@@ -76,6 +114,9 @@ namespace Wishlist
             }
         }
 
+        /// <summary>
+        /// The main menu option.
+        /// </summary>
         private void MainMenuOption()
         {
             Console.WriteLine(Environment.NewLine);
@@ -83,6 +124,12 @@ namespace Wishlist
             Console.WriteLine("(A)dd Wishlist.\t (E)xit Wishlist Manager.");
         }
 
+        /// <summary>
+        /// The add wish list.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IWishlist"/>.
+        /// </returns>
         private IWishlist AddWishlist()
         {
             Console.WriteLine();
