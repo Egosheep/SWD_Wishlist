@@ -54,9 +54,10 @@ namespace Wishlist
         public void ShowWishlistMenu()
         {
             var readLine = string.Empty;
-            while ((readLine.ToLower() != "e" && readLine.ToLower() != "s") || string.IsNullOrEmpty(readLine))
+            while (readLine.ToLower() != "e" && readLine.ToLower() != "s")
             {
                 Console.Clear();
+                
                 foreach (var wish in _wishlist.ListOfWishes)
                 {
                     Console.WriteLine(wish.ToString());
@@ -89,6 +90,7 @@ namespace Wishlist
                         break;
                     default:
                         Console.WriteLine("That's not an option dumbass.");
+                        Thread.Sleep(1000);
                         break;
                 }
             }
